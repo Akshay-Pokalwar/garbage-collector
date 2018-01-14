@@ -27,6 +27,11 @@ public class Product {
 	@Column
 	private Long quantity;
 
+	
+	public Product() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Long getId() {
 		return id;
 	}

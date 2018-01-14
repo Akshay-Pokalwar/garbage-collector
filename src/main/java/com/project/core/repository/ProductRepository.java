@@ -17,4 +17,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	public List<Product> findByGtProductId(@Param("id") Long id);
 	
 	
+	
 }

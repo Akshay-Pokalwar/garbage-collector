@@ -14,16 +14,22 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false, columnDefinition = "BIGINT UNSIGNED")
 	private Long id;
+	
 	@Column(name="username", nullable=false, unique=true)
 	private String username;
+	
 	@Column
 	private String password;
+	
 	@Column(name="email")
 	private String email;
+	
 	@Column(name="contact_no")
 	private String contactNo;
+	
 	@Column
 	private String city;
+	
 	@Column
 	private String securityAns;
 	
@@ -82,5 +88,12 @@ public class User {
 	public void setSecurityAns(String securityAns) {
 		this.securityAns = securityAns;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email
+				+ ", contactNo=" + contactNo + ", city=" + city + ", securityAns=" + securityAns + "]";
+	}
+	
 	
 }

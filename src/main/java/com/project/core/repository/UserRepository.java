@@ -7,5 +7,9 @@ import com.project.core.dao.User;
 public interface UserRepository extends JpaRepository<User, Long>{
 	
 	User findByUsername(String username); // No need to write query. 
+	
+	public User getById(Long id);
+	
+	
 
 }
