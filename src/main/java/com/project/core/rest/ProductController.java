@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.core.dao.Product;
+import com.project.core.domain.Product;
 import com.project.core.service.ProductService;
 
 @RestController
@@ -36,11 +36,11 @@ public class ProductController {
 		return products;
 	}
 	
-	@GetMapping(value="/nameprice/{name}/{price}")
+	/*@GetMapping(value="/nameprice/{name}/{price}")
 	public Product getByNameAndPrice(@PathVariable String name,@PathVariable Double price) {
 		Product product=productService.findByNameAndPrice(name, price);
 		return product;
-	}
+	}*/
 	
 	
 }

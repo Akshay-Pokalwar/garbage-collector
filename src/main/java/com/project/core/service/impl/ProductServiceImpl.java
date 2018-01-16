@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.core.dao.Product;
+import com.project.core.domain.Product;
 import com.project.core.repository.ProductRepository;
 import com.project.core.service.ProductService;
 
@@ -32,14 +32,14 @@ public class ProductServiceImpl implements ProductService {
 		throw new RuntimeException("NO PRODUCT FOUND WITH name : " + name);
 	}
 
-	@Override
+	/*@Override
 	public Product findByNameAndPrice(String name, Double price) {
 		Product product = productRepository.findByNameAndPrice(name, price);
 		if (product != null) {
 			return product;
 		}
 		throw new RuntimeException("NO PRODUCT FOUND WITH NAME : " + name + "  PRICE: " + price);
-	}
+	}*/
 	
 
 	@Override

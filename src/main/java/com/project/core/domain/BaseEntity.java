@@ -1,4 +1,4 @@
-package com.project.core.dao;
+package com.project.core.domain;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
