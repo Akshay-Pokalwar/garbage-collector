@@ -35,7 +35,7 @@ public class UserController {
 		if(user!=null){
 			return user;
 		}
-		return null;
+		return new User(new Long(-1));
 	}
 	
 	@PostMapping

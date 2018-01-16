@@ -1,18 +1,23 @@
 package com.project.core.dao;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 @Table(name="products")
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", nullable = false, columnDefinition = "BIGINT UNSIGNED")
+	@Column(name = "pid", nullable = false, columnDefinition = "BIGINT UNSIGNED")
 	private Long id;
 
 	@Column
@@ -26,12 +31,38 @@ public class Product {
 	
 	@Column
 	private Long quantity;
+	
+	@ManyToMany(mappedBy="products")
+	private Set<Vendor> vendor=new HashSet<Vendor>();
+	//private Set<Vendor_Product> vendorProduct;
 
 	
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	
+	public Product(String name, Double price, String description, Long quantity, Set<Vendor_Product> vendorProduct) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.description = description;
+		this.quantity = quantity;
+		//this.vendorProduct = new HashSet<>();
+	}
+
+
+	//This is for OneToMany mapping
+//	@OneToMany(mappedBy="product", cascade = CascadeType.ALL, orphanRemoval = true)
+//	public Set<Vendor_Product> getVendorProduct() {
+//		return vendorProduct;
+//	}
+//
+//	public void setVendorProduct(Set<Vendor_Product> vendorProduct) {
+//		this.vendorProduct = vendorProduct;
+//	}
+
 	public Long getId() {
 		return id;
 	}

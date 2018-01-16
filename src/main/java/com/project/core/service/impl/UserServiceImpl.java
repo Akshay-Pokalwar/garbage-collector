@@ -32,6 +32,10 @@ public class UserServiceImpl implements UserService {
 		BCryptPasswordEncoder bc = new BCryptPasswordEncoder();
 		String encPassword = bc.encode(user.getPassword());
 		user.setPassword(encPassword);
+		
+		String encSecurity = bc.encode(user.getSecurityAns());
+		user.setSecurityAns(encSecurity);
+		
 		User u = userRepo.save(user);
 		return u;
 	}
@@ -61,14 +65,12 @@ public class UserServiceImpl implements UserService {
 		BCryptPasswordEncoder bc=new BCryptPasswordEncoder();
 		
 		User user = userRepo.findByUsername(username);
-//		String encPassword = bc.encode(password);
-//		System.err.println(encPassword);
 		
 		System.err.println(user);
 		if(bc.matches(password,user.getPassword())){
 			return user;
 		}
-		throw new RuntimeException("Invalid credentials");
+		return new User(new Long(-1));
 	}
 
 }

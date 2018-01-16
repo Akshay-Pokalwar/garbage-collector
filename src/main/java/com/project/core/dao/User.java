@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.Table;
 
 @Entity
@@ -33,6 +34,12 @@ public class User {
 	@Column
 	private String securityAns;
 	
+	
+	public User(Long id) {
+		super();
+		this.id = id;
+	}
+
 	public Long getId() {
 		return id;
 	}
