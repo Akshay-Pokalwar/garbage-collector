@@ -1,6 +1,6 @@
 package com.project.core.service;
 
-import com.project.core.dao.User;
+import com.project.core.domain.User;
 
 public interface UserService {
 	

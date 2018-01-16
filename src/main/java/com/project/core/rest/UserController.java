@@ -1,11 +1,7 @@
 package com.project.core.rest;
 
-import com.project.core.dao.User;
-import com.project.core.dto.*;
-import com.project.core.repository.UserRepository;
+import com.project.core.domain.User;
 import com.project.core.service.UserService;
-
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +12,6 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
-
-//	@GetMapping(value="/{id}")
-//	public Integer ping(@PathVariable Integer id ) {
-//		return id;
-//	}
 	
 	@GetMapping(value="/{id}")
 	public User getById(@PathVariable Long id ) {
