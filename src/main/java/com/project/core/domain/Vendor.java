@@ -6,8 +6,13 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
+
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name="vendor")
 public class Vendor {
 
@@ -34,8 +39,13 @@ public class Vendor {
 	@Column
 	private String securityAns;
 
-	@OneToMany(mappedBy = "vendor")
+	@OneToMany(mappedBy = "vendor",cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<VendorProduct> vendorProduct=new HashSet<>();
+	
+	
+	public Vendor() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Vendor(Long id, String username, String password, String email, String contactNo, String city,
 			String securityAns) {
@@ -48,6 +58,10 @@ public class Vendor {
 		this.city = city;
 		this.securityAns = securityAns;
 		//this.vendorProduct = new HashSet<>();
+	}
+
+	public Vendor(Long long1) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {
