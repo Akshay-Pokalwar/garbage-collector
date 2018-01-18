@@ -10,6 +10,8 @@ import com.project.core.domain.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	public Product getByName(String name);
+	
+	
 
 	@Query("Select p from Product p where p.id >= :id")
 	public List<Product> findByGtProductId(@Param("id") Long id);

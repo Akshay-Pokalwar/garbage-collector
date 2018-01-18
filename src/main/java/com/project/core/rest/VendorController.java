@@ -3,6 +3,7 @@ package com.project.core.rest;
 
 import com.project.core.domain.User;
 import com.project.core.domain.Vendor;
+import com.project.core.dto.VendorDTO;
 import com.project.core.service.VendorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class VendorController {
     }
     
     @PostMapping
-	public Vendor saveuser(@RequestBody Vendor obj) {
+	public VendorDTO saveVendor(@RequestBody VendorDTO obj) {
 		return vendorService.saveVendor(obj);
 	}
     

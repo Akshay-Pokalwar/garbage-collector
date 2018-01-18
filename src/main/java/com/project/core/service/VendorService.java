@@ -1,12 +1,13 @@
 package com.project.core.service;
 
 import com.project.core.domain.Vendor;
+import com.project.core.dto.VendorDTO;
 
 public interface VendorService {
 
     Vendor getById(Long id);
     
-    Vendor saveVendor(Vendor vendor);
+    VendorDTO saveVendor(VendorDTO obj);
 
 	Vendor findByUsername(String username, String password);
 

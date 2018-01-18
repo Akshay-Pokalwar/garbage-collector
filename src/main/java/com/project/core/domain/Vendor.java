@@ -9,8 +9,6 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
-
-
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name="vendor")
@@ -20,7 +18,7 @@ public class Vendor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="vid" , nullable = false, columnDefinition = "BIGINT UNSIGNED")
 	private Long id;
-	 
+	
 	@Column(name="username")
 	private String username;
 	
@@ -39,7 +37,7 @@ public class Vendor {
 	@Column
 	private String securityAns;
 
-	@OneToMany(mappedBy = "vendor",cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "vendor",cascade = CascadeType.ALL)
 	private Set<VendorProduct> vendorProduct=new HashSet<>();
 	
 	

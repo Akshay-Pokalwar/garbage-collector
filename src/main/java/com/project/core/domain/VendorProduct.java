@@ -18,6 +18,7 @@ public class VendorProduct implements Serializable {
 	@JoinColumn(name="pid")
 	private Product product;
 
+	
 	private Double price;
 
 	public Vendor getVendor() {

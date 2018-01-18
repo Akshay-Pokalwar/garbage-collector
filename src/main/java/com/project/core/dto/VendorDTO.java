@@ -1,8 +1,10 @@
 package com.project.core.dto;
 
-import javax.persistence.Column;
+import java.util.HashSet;
+import java.util.Set;
 
-public class Vendor {
+
+public class VendorDTO {
 
 	private Long id;
 	 
@@ -18,12 +20,15 @@ public class Vendor {
 	
 	private String securityAns;
 	
-	public Vendor() {
+	Set<ProductDTO> products= (Set<ProductDTO>) new HashSet();
+	
+	public VendorDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Vendor(Long id, String username, String password, String email, String contactNo, String city,
-			String securityAns) {
+
+	public VendorDTO(Long id, String username, String password, String email, String contactNo, String city,
+			String securityAns, Set<ProductDTO> products) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -32,7 +37,19 @@ public class Vendor {
 		this.contactNo = contactNo;
 		this.city = city;
 		this.securityAns = securityAns;
+		this.products = products;
 	}
+
+
+	public Set<ProductDTO> getProducts() {
+		return products;
+	}
+
+
+	public void setProducts(Set<ProductDTO> products) {
+		this.products = products;
+	}
+
 
 	public Long getId() {
 		return id;
