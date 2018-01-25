@@ -19,7 +19,7 @@ public class Vendor {
 	@Column(name="vid" , nullable = false, columnDefinition = "BIGINT UNSIGNED")
 	private Long id;
 	
-	@Column(name="username")
+	@Column(name="username", nullable=false, unique=true)
 	private String username;
 	
 	@Column

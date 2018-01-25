@@ -16,7 +16,7 @@ public class VendorController {
     VendorService vendorService;
 
     @GetMapping(value="/{id}")
-    Vendor getById(@PathVariable Long id){
+    VendorDTO getById(@PathVariable Long id){
         return vendorService.getById(id);
     }
     
@@ -26,13 +26,13 @@ public class VendorController {
 	}
     
     @GetMapping(value="/namepassword/{username}/{password}")
-	public Vendor getByUsername(@PathVariable String username,@PathVariable String password)
+	public String getByUsername(@PathVariable String username,@PathVariable String password)
 	{
-		Vendor vendor=vendorService.findByUsername(username, password);
+		VendorDTO vendor=vendorService.findByUsername(username, password);
 		if(vendor!=null){
-			return vendor;
+			return vendor.getUsername();
 		}
-		return new Vendor(new Long(-1));
+		return null;
 	}
     
     @PutMapping("/{id}")

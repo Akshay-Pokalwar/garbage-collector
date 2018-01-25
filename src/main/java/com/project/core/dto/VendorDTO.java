@@ -41,6 +41,11 @@ public class VendorDTO {
 	}
 
 
+	public VendorDTO(Long long1) {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public Set<ProductDTO> getProducts() {
 		return products;
 	}

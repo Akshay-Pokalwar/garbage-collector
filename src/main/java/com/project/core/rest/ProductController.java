@@ -30,11 +30,12 @@ public class ProductController {
 		return product;
 	}
 	
-	@GetMapping(value="/ids/{id}")
-	public List<Product> getByName(@PathVariable Long id) {
-		List<Product> products=productService.findByGtId(id);
-		return products;
-	}
+	
+//	@GetMapping(value="/ids/{id}")
+//	public List<Product> getByName(@PathVariable Long id) {
+//		List<Product> products=productService.findByGtId(id);
+//		return products;
+//	}
 	
 	/*@GetMapping(value="/nameprice/{name}/{price}")
 	public Product getByNameAndPrice(@PathVariable String name,@PathVariable Double price) {

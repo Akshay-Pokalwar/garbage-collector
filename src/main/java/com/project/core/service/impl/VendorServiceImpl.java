@@ -27,9 +27,17 @@ public class VendorServiceImpl implements VendorService {
     ProductRepository productRepository;
 
     @Override
-    public Vendor getById(Long id) {
+    public VendorDTO getById(Long id) {
         Vendor vendor = vendorRepository.getOne(id);
-        return vendor;
+        VendorDTO vendorDTO=new VendorDTO();
+        vendorDTO.setId(vendor.getId());
+		vendorDTO.setUsername(vendor.getUsername());
+		vendorDTO.setPassword(vendor.getPassword());
+		vendorDTO.setEmail(vendor.getEmail());
+		vendorDTO.setCity(vendor.getCity());
+		vendorDTO.setContactNo(vendor.getContactNo());
+		vendorDTO.setSecurityAns(vendor.getSecurityAns());
+        return vendorDTO;
     }
 
 	@Override
@@ -89,7 +97,7 @@ public class VendorServiceImpl implements VendorService {
 	}
 
 	@Override
-	public Vendor findByUsername(String username, String password) {
+	public VendorDTO findByUsername(String username, String password) {
 		System.err.println("USERNAME : " + username + "   PASSWORD: " + password);
 		BCryptPasswordEncoder bc=new BCryptPasswordEncoder();
 		
@@ -97,9 +105,17 @@ public class VendorServiceImpl implements VendorService {
 		
 		System.err.println(vendor);
 		if(bc.matches(password,vendor.getPassword())){
-			return vendor;
+			VendorDTO vendorDTO=new VendorDTO();
+			vendorDTO.setId(vendor.getId());
+			vendorDTO.setUsername(vendor.getUsername());
+//			vendorDTO.setPassword(vendor.getPassword());
+//			vendorDTO.setEmail(vendor.getEmail());
+//			vendorDTO.setCity(vendor.getCity());
+//			vendorDTO.setContactNo(vendor.getContactNo());
+//			vendorDTO.setSecurityAns(vendor.getSecurityAns());
+			return vendorDTO;
 		}
-		return new Vendor(new Long(-1));
+		return new VendorDTO(new Long(-1));
 	}
 
 	@Override
@@ -110,6 +126,11 @@ public class VendorServiceImpl implements VendorService {
 		// @TODO: Do some more validations.
 
 		vendor.setId(existingUser.getId());
+//		vendor.setId(existingUser.getId());
+//		vendor.setUsername(existingUser.getUsername());
+//		vendor.getPassword();
+//		vendor.getEmail();
+		
 		return vendorRepository.save(vendor);
 	}
 }
