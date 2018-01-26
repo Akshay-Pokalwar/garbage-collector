@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class VendorController {
 
     @Autowired
-    VendorService vendorService;
+    private VendorService vendorService;
 
     @GetMapping(value="/{id}")
     VendorDTO getById(@PathVariable Long id){

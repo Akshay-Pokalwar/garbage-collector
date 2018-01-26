@@ -31,6 +31,11 @@ public class ProductDTO {
 		this.price = price;
 	}
 
+	@Override
+	public String toString() {
+		return "ProductDTO [id=" + id + ", price=" + price + "]";
+	}
+
 	
 
 	

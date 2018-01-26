@@ -43,6 +43,7 @@ public class VendorServiceImpl implements VendorService {
 	@Override
 	@Transactional
 	public VendorDTO saveVendor(VendorDTO vendordto) {
+		System.err.print(vendordto);
 		BCryptPasswordEncoder bc = new BCryptPasswordEncoder();
 		String encPassword = bc.encode(vendordto.getPassword());
 		vendordto.setPassword(encPassword);
@@ -53,7 +54,7 @@ public class VendorServiceImpl implements VendorService {
 		
 		Vendor vendor=new Vendor();
 		vendor.setUsername(vendordto.getUsername());
-		vendor.setPassword(encPassword);
+		vendor.setPassword(encPassword); 
 		vendor.setEmail(vendordto.getEmail());
 		vendor.setCity(vendordto.getCity());
 		vendor.setContactNo(vendordto.getContactNo());
@@ -82,6 +83,7 @@ public class VendorServiceImpl implements VendorService {
 			vendorprod.setProduct(product);
 			vendorprod.setPrice(prodDto.getPrice());
 			v.getVendorProduct().add(vendorprod);
+			
 		}
 		
 //		v.setVendorProduct(vendorproductSet);

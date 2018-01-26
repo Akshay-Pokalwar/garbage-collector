@@ -35,6 +35,10 @@ public class User {
 	private String securityAns;
 	
 	
+	public User() {
+		super();
+	}
+
 	public User(Long id) {
 		super();
 		this.id = id;

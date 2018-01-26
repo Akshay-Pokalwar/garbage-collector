@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.project.core.dto.ProductDTO;
 
 
 @Entity
@@ -46,7 +47,7 @@ public class Vendor {
 	}
 	
 	public Vendor(Long id, String username, String password, String email, String contactNo, String city,
-			String securityAns) {
+			String securityAns,Set <ProductDTO> products) {
 		super();
 		this.id = id;
 		this.username = username;

@@ -1,8 +1,11 @@
 package com.project.core.service;
 
+import org.springframework.stereotype.Component;
+
 import com.project.core.domain.Vendor;
 import com.project.core.dto.VendorDTO;
 
+@Component
 public interface VendorService {
 
     VendorDTO getById(Long id);
