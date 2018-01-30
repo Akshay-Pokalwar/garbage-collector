@@ -1,10 +1,15 @@
 package com.project.core.rest;
 
 
+import com.project.core.domain.Product;
 import com.project.core.domain.User;
 import com.project.core.domain.Vendor;
 import com.project.core.dto.VendorDTO;
+import com.project.core.dto.VendorPriceDTO;
 import com.project.core.service.VendorService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +19,17 @@ public class VendorController {
 
     @Autowired
     private VendorService vendorService;
+    
+    @GetMapping(value="/usersearch/{id}")
+    List<VendorPriceDTO> getBySearchOnId(@PathVariable Long id){
+    	//System.out.println("some value here");
+    	List<VendorPriceDTO> list=vendorService.getBySearchOnId(id);
+    	if(list!=null)
+    	{
+    		return list;
+    	}
+        return null ;
+    }
 
     @GetMapping(value="/{id}")
     VendorDTO getById(@PathVariable Long id){

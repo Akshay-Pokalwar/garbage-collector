@@ -83,4 +83,14 @@ public class Product {
 	public void setVendorProduct(Set<VendorProduct> vendorProduct) {
 		this.vendorProduct = vendorProduct;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", quantity=" + quantity
+				+ ", vendorProduct=" + vendorProduct + "]";
+	}
+	
+	
 }

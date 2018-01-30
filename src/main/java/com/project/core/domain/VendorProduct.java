@@ -44,4 +44,11 @@ public class VendorProduct implements Serializable {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+
+	@Override
+	public String toString() {
+		return "VendorProduct [vendor=" + vendor + ", product=" + product + ", price=" + price + "]";
+	}
+	
+	
 }

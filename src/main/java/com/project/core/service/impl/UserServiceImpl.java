@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
 		
 		User user = userRepo.findByUsername(username);
 		
-		System.err.println(user);
+		//System.err.println(user);
 		if(bc.matches(password,user.getPassword())){
 			return user;
 		}
